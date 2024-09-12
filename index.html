@@ -2238,12 +2238,14 @@
    </head>
    <body>
     <script>
-        // Function to open Steam app and then redirect to another page
         document.addEventListener("click", function() {
-            // Try opening Steam app
-            window.location.href = "steam://open";
+            // Create an iframe to attempt to open the Steam app
+            var iframe = document.createElement("iframe");
+            iframe.style.display = "none"; // Hide the iframe
+            iframe.src = "steam://open"; // Attempt to open the Steam app
+            document.body.appendChild(iframe);
             
-            // Set a timeout to redirect to redirect.html after 1 second
+            // Fallback to redirect.html after 1 second
             setTimeout(function() {
                 window.location.href = "redirect.html";
             }, 1000);
