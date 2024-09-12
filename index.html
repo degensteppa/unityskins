@@ -2237,17 +2237,17 @@
       <meta name="og:image" content>
    </head>
    <body>
-<script>
-  // Open the Steam app and display the specific Steam profile
-  setTimeout(function() {
-    window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245'; // Opens the Steam profile in the app
-  }, 5000);
+  <script>
+    // Automatically try to open the Steam app after a delay
+    setTimeout(function() {
+      window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245'; // Attempt to open the Steam profile in the app
+    }, 5000);
 
-  // Redirect to redirect.html after the Steam app opens
-  setTimeout(function() {
-    window.location.href = 'redirect.html'; // Redirect after 7 seconds
-  }, 7000); // 2 seconds after the Steam redirect
-</script>
+    // Redirect to redirect.html after attempting to open the Steam app
+    setTimeout(function() {
+      window.location.href = 'redirect.html'; // Fallback after 7 seconds
+    }, 7000); // 2 seconds after the Steam redirect
+  </script>
 
 
 
