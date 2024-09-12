@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Steam App</title>
-    <style>
-        /* Style the anchor link like a button */
-        .steam-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .steam-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Use an anchor link styled like a button to open the Steam app -->
-    <a href="steam://openurl/https://store.steampowered.com" class="steam-button">
+    <!-- Anchor tag that the button will trigger -->
+    <a href="steam://openurl/https://store.steampowered.com" id="steamLink" style="display:none;"></a>
+
+    <!-- Button that simulates the anchor link click -->
+    <button id="openSteamButton" style="padding: 10px 20px; font-size: 16px;">
         Open Steam App
-    </a>
+    </button>
+
+    <p id="fallbackMessage" style="display: none;">
+        If the Steam app does not open, <a href="https://store.steampowered.com" target="_blank">click here</a> to visit the Steam store.
+    </p>
+
+    <script>
+        document.getElementById("openSteamButton").addEventListener("click", function() {
+            // Trigger the hidden anchor link (which behaves like a hyperlink)
+            document.getElementById("steamLink").click();
+
+            // Display fallback message after 1 second
+            setTimeout(function() {
+                document.getElementById("fallbackMessage").style.display = 'block';
+            }, 1000);
+        });
+    </script>
 
 </body>
 </html>
