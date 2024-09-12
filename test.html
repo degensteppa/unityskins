@@ -13,12 +13,12 @@
 
     <script>
         document.getElementById("openSteamButton").addEventListener("click", function() {
-            // Try to open the Steam app
-            window.location.href = "steam://open";
+            // Try to open the Steam app with a valid URL
+            window.location.href = "steam://openurl/https://store.steampowered.com";
 
-            // Fallback: if the Steam app cannot be opened, redirect to Steam's web login page after 1 second
+            // Fallback: if the Steam app cannot be opened, redirect to the Steam website after 1 second
             setTimeout(function() {
-                window.location.href = "https://store.steampowered.com/login";
+                window.location.href = "https://store.steampowered.com";
             }, 1000);
         });
     </script>
