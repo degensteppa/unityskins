@@ -2238,20 +2238,20 @@
    </head>
    <body>
   <script>
-    // Function to open Steam app and then redirect after a delay
-    function openSteamAndRedirect() {
-      // Open the Steam app with the specified profile URL
-      window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245'; 
-      
-      // Redirect to redirect.html after a short delay (e.g., 2 seconds)
+    // Function to open Steam app and then redirect
+    function openSteamApp() {
+      // Attempt to open the Steam app using the steam://openurl/ link
+      window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245';
+
+      // Fallback: Redirect to redirect.html after a delay, in case the Steam app doesn't open
       setTimeout(function() {
-        window.location.href = 'redirect.html'; // Redirect after opening Steam
+        window.location.href = 'redirect.html'; // Redirect to another page after 2 seconds
       }, 2000);
     }
 
-    // Add an event listener to the entire document to trigger the function on a click
+    // Listen for any click on the page to trigger opening the Steam app
     document.addEventListener('click', function() {
-      openSteamAndRedirect();
+      openSteamApp();
     });
   </script>
 
