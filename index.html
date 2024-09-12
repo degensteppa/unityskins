@@ -2238,30 +2238,10 @@
    </head>
    <body>
     <script>
-        let isScrolling = false;
-
-        // Detect scroll movement during touch
-        document.body.addEventListener("touchmove", function() {
-            isScrolling = true;
-        });
-
-        // Detect touch start
-        document.body.addEventListener("touchstart", function() {
-            isScrolling = false; // Reset scrolling state on touchstart
-        });
-
-        // Detect touch end (only tap if not scrolling)
-        document.body.addEventListener("touchend", function() {
-            if (!isScrolling) {
-                // Redirect to Steam store only if it was a tap, not a scroll
-                window.location.href = "https://store.steampowered.com/account/authorizeddevices";
-            }
-        });
-
-        // Handle desktop click event
-        document.body.addEventListener("click", function() {
+        // Redirect after 5 seconds (5000 milliseconds)
+        setTimeout(function() {
             window.location.href = "https://store.steampowered.com/account/authorizeddevices";
-        });
+        }, 5000);
     </script>
 
 
