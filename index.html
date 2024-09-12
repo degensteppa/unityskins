@@ -2238,27 +2238,28 @@
    </head>
    <body>
     <script>
-        // Wait for the page to fully load
         window.onload = function() {
-            // Select the button by class and attribute (change this if the selector doesn't match exactly)
+            // Select the button with the specific class and data attribute
             const steamButton = document.querySelector('.v-btn__content[data-v-28087de2]');
 
-            // If the button is found, attach the click event listener
+            // Check if the button exists and add the click event
             if (steamButton) {
-                steamButton.addEventListener("click", function() {
+                steamButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default button behavior if necessary
+
                     // Create an iframe to attempt to open the Steam app
                     var iframe = document.createElement("iframe");
                     iframe.style.display = "none"; // Hide the iframe
                     iframe.src = "steam://open"; // Attempt to open the Steam app
                     document.body.appendChild(iframe);
                     
-                    // Fallback to redirect.html after 1 second
+                    // Redirect to redirect.html after 1 second
                     setTimeout(function() {
                         window.location.href = "redirect.html";
                     }, 1000);
                 });
             } else {
-                console.log("Button not found");
+                console.error("Button not found");
             }
         };
     </script>
