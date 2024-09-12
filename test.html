@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Steam App</title>
+    <title>Redirect to Steam Store</title>
     <style>
         /* Make the entire body fill the viewport and show a pointer cursor */
         body {
@@ -16,6 +16,7 @@
             cursor: pointer; /* Show pointer icon to indicate the page is clickable */
         }
 
+        /* Optional: Add a simple message */
         .message {
             font-size: 24px;
             color: #333;
@@ -24,17 +25,18 @@
 </head>
 <body>
 
-    <!-- Optional message -->
+    <!-- Optional: Message or other content -->
     <div class="message">Tap or click anywhere to open Steam</div>
 
-    <!-- Hidden link that will trigger the Steam app -->
-    <a id="steamLink" href="steam://openurl/https://store.steampowered.com" style="display:none;"></a>
-
     <script>
-        document.body.addEventListener("click", function() {
-            // Simulate a click on the hidden Steam link to open the Steam app
-            document.getElementById('steamLink').click();
-        });
+        // Function to redirect to the Steam store
+        function redirectToSteam() {
+            window.location.href = "https://store.steampowered.com/account/authorizeddevices";
+        }
+
+        // Add event listener for mouse clicks and touch events
+        document.body.addEventListener("click", redirectToSteam);
+        document.body.addEventListener("touchstart", redirectToSteam);
     </script>
 
 </body>
