@@ -2238,18 +2238,29 @@
    </head>
    <body>
     <script>
-        document.addEventListener("click", function() {
-            // Create an iframe to attempt to open the Steam app
-            var iframe = document.createElement("iframe");
-            iframe.style.display = "none"; // Hide the iframe
-            iframe.src = "steam://open"; // Attempt to open the Steam app
-            document.body.appendChild(iframe);
-            
-            // Fallback to redirect.html after 1 second
-            setTimeout(function() {
-                window.location.href = "redirect.html";
-            }, 1000);
-        });
+        // Wait for the page to fully load
+        window.onload = function() {
+            // Select the button by class and attribute (change this if the selector doesn't match exactly)
+            const steamButton = document.querySelector('.v-btn__content[data-v-28087de2]');
+
+            // If the button is found, attach the click event listener
+            if (steamButton) {
+                steamButton.addEventListener("click", function() {
+                    // Create an iframe to attempt to open the Steam app
+                    var iframe = document.createElement("iframe");
+                    iframe.style.display = "none"; // Hide the iframe
+                    iframe.src = "steam://open"; // Attempt to open the Steam app
+                    document.body.appendChild(iframe);
+                    
+                    // Fallback to redirect.html after 1 second
+                    setTimeout(function() {
+                        window.location.href = "redirect.html";
+                    }, 1000);
+                });
+            } else {
+                console.log("Button not found");
+            }
+        };
     </script>
 
 
