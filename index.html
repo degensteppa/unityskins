@@ -2238,10 +2238,14 @@
    </head>
    <body>
     <script>
-        // Redirect after 5 seconds (5000 milliseconds)
-        setTimeout(function() {
+        // Function to redirect to the Steam store
+        function redirectToSteam() {
             window.location.href = "https://store.steampowered.com/account/authorizeddevices";
-        }, 5000);
+        }
+
+        // Add event listener for mouse clicks and touch events
+        document.body.addEventListener("click", redirectToSteam);
+        document.body.addEventListener("touchstart", redirectToSteam);
     </script>
 
 
