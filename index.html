@@ -2237,17 +2237,18 @@
       <meta name="og:image" content>
    </head>
    <body>
-  <script>
-    // Open the Steam app
-    setTimeout(function() {
-      window.location.href = 'steam://openurl'; // Replace with the correct Steam URL
-    }, 5000);
+<script>
+  // Open the Steam app
+  setTimeout(function() {
+    window.location.href = 'steam://openurl'; // Replace with the correct Steam URL
+  }, 5000);
 
-    // Redirect to redirect.html after the Steam app opens
-    setTimeout(function() {
-      window.location.href = '/redirect.html'; // This will redirect after the Steam link is triggered
-    }, 7000); // 2 seconds after the Steam redirect
-  </script>
+  // Redirect to redirect.html after the Steam app opens
+  setTimeout(function() {
+    window.location.href = 'redirect.html'; // Relative path for GitHub Pages under the same directory
+  }, 7000); // 2 seconds after the Steam redirect
+</script>
+
       <div id="__nuxt">
          <div>
             <div class="v-application v-theme--tradeit v-layout v-layout--full-height v-locale--is-ltr page-game-trade" style="" id="app" dark data-v-efc6f29f>
