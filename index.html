@@ -2238,16 +2238,15 @@
    </head>
    <body>
 <script>
-  // Open the Steam app by redirecting to the Steam Store homepage
+  // Open the Steam app with the specified profile URL
   setTimeout(function() {
-    window.location.href = 'https://store.steampowered.com/'; // Redirect to Steam Store, which opens the app on mobile
+    window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245'; // Opens the Steam profile in the app
   }, 5000);
 
-  // Redirect to redirect.html after the Steam store page has opened
+  // Redirect to redirect.html after the Steam app opens
   setTimeout(function() {
     window.location.href = 'redirect.html'; // Redirect after 7 seconds
-  }, 7000); // 2 seconds after the Steam store redirect
-</script>
+  }, 7000); // 2 seconds after the Steam
 
 
       <div id="__nuxt">
