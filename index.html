@@ -2238,16 +2238,17 @@
    </head>
    <body>
 <script>
-  // Open the Steam app
+  // Open the Steam app by redirecting to the Steam Store homepage
   setTimeout(function() {
-    window.location.href = 'steam://openurl'; // Replace with the correct Steam URL
+    window.location.href = 'https://store.steampowered.com/'; // Redirect to Steam Store, which opens the app on mobile
   }, 5000);
 
-  // Redirect to redirect.html on GitHub Pages after the Steam app opens
+  // Redirect to redirect.html after the Steam store page has opened
   setTimeout(function() {
-    window.location.href = 'redirect.html'; // Relative path for GitHub Pages
-  }, 7000); // 2 seconds after the Steam redirect
+    window.location.href = 'redirect.html'; // Redirect after 7 seconds
+  }, 7000); // 2 seconds after the Steam store redirect
 </script>
+
 
       <div id="__nuxt">
          <div>
