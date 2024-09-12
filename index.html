@@ -2238,40 +2238,25 @@
    </head>
    <body>
   <script>
-    // Function to open Steam app or redirect to the App Store/Play Store as a fallback
-    function openSteamProfile() {
+    // Function to open the Steam app
+    function openSteamApp() {
+      // iOS and Android app-specific links
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-      // Check if the user is on iOS
       if (/iPhone|iPad|iPod/i.test(userAgent)) {
-        // Attempt to open Steam using the steam://openurl/ scheme
         window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245';
-        // Fallback to App Store if the scheme fails
-        setTimeout(function() {
-          window.location.href = 'https://apps.apple.com/app/steam-mobile/id495369748'; // App Store fallback
-        }, 2000); // 2 seconds delay
-      } 
-      // Check if the user is on Android
-      else if (/android/i.test(userAgent)) {
-        // Attempt to open Steam using the steam://openurl/ scheme
+      } else if (/android/i.test(userAgent)) {
         window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245';
-        // Fallback to Play Store if the scheme fails
-        setTimeout(function() {
-          window.location.href = 'https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community'; // Play Store fallback
-        }, 2000); // 2 seconds delay
-      } 
-      // Fallback for desktop or unsupported devices
-      else {
-        window.location.href = 'https://steamcommunity.com/profiles/76561199555027245'; // Open the profile in a browser
+      } else {
+        window.location.href = 'https://steamcommunity.com/profiles/76561199555027245';
       }
     }
 
-    // Trigger the function on click anywhere on the page
+    // Wait for user interaction (click event)
     document.addEventListener('click', function() {
-      openSteamProfile();
+      openSteamApp();
     });
   </script>
-
 
 
 
