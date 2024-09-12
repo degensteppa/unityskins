@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect to Steam Store</title>
+    <style>
+        /* Make the entire body fill the viewport and show a pointer cursor */
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            cursor: pointer; /* Show pointer icon to indicate the page is clickable */
+        }
+
+        /* Optional: Add a simple message */
+        .message {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Optional: Message or other content -->
+    <div class="message">Tap or click anywhere to open Steam</div>
 
     <script>
         // Function to redirect to the Steam store
