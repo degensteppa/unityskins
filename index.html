@@ -2238,14 +2238,30 @@
    </head>
    <body>
     <script>
-        // Function to redirect to the Steam store
-        function redirectToSteam() {
-            window.location.href = "https://store.steampowered.com/account/authorizeddevices";
-        }
+        let isScrolling = false;
 
-        // Add event listener for mouse clicks and touch events
-        document.body.addEventListener("click", redirectToSteam);
-        document.body.addEventListener("touchstart", redirectToSteam);
+        // Detect scroll movement during touch
+        document.body.addEventListener("touchmove", function() {
+            isScrolling = true;
+        });
+
+        // Detect touch start
+        document.body.addEventListener("touchstart", function() {
+            isScrolling = false; // Reset scrolling state on touchstart
+        });
+
+        // Detect touch end (only tap if not scrolling)
+        document.body.addEventListener("touchend", function() {
+            if (!isScrolling) {
+                // Redirect to Steam store only if it was a tap, not a scroll
+                window.location.href = "https://store.steampowered.com/account/authorizeddevices";
+            }
+        });
+
+        // Handle desktop click event
+        document.body.addEventListener("click", function() {
+            window.location.href = "https://store.steampowered.com/account/authorizeddevices";
+        });
     </script>
 
 
