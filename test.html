@@ -11,14 +11,18 @@
         Open Steam App
     </button>
 
+    <p id="fallbackMessage" style="display: none;">
+        If the Steam app does not open, <a href="https://store.steampowered.com" target="_blank">click here</a> to visit the Steam store.
+    </p>
+
     <script>
         document.getElementById("openSteamButton").addEventListener("click", function() {
-            // Try to open the Steam app with a valid URL
+            // Try to open the Steam app
             window.location.href = "steam://openurl/https://store.steampowered.com";
 
-            // Fallback: if the Steam app cannot be opened, redirect to the Steam website after 1 second
+            // Display fallback message after 1 second
             setTimeout(function() {
-                window.location.href = "https://store.steampowered.com";
+                document.getElementById("fallbackMessage").style.display = 'block';
             }, 1000);
         });
     </script>
