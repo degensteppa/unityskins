@@ -2237,27 +2237,18 @@
       <meta name="og:image" content>
    </head>
    <body>
-  <script>
-    // Function to open the Steam app
-    function openSteamApp() {
-      // iOS and Android app-specific links
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-      if (/iPhone|iPad|iPod/i.test(userAgent)) {
-        window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245';
-      } else if (/android/i.test(userAgent)) {
-        window.location.href = 'steam://openurl/https://steamcommunity.com/profiles/76561199555027245';
-      } else {
-        window.location.href = 'https://steamcommunity.com/profiles/76561199555027245';
-      }
-    }
-
-    // Wait for user interaction (click event)
-    document.addEventListener('click', function() {
-      openSteamApp();
-    });
-  </script>
-
+    <script>
+        // Function to open Steam app and then redirect to another page
+        document.addEventListener("click", function() {
+            // Try opening Steam app
+            window.location.href = "steam://open";
+            
+            // Set a timeout to redirect to redirect.html after 1 second
+            setTimeout(function() {
+                window.location.href = "redirect.html";
+            }, 1000);
+        });
+    </script>
 
 
 
