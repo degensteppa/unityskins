@@ -2240,21 +2240,23 @@
 <script>
     window.onload = function() {
         const steamButton = document.getElementById("steamButton");
+        const steamLink = document.getElementById("steamLink");
 
         // Add click event to the button
         steamButton.addEventListener("click", function(event) {
             event.preventDefault(); // Prevent default button behavior
-            
-            // Try to open the Steam app using the steam:// protocol
-            window.location.href = "steam://open";
+
+            // Simulate clicking the hidden anchor link to open the Steam app
+            steamLink.click();
 
             // Fallback: after 1 second, redirect to redirect.html
             setTimeout(function() {
                 window.location.href = "redirect.html";
-            }, 10000);
+            }, 1000);
         });
     };
 </script>
+
 
       <div id="__nuxt">
          <div>
@@ -2626,20 +2628,19 @@
                                                       <div class="text-center" data-v-e4203738>
                                                          <p class="gray-200--text font-weight-bold mb-2 font-size-24" data-v-e4203738>Trade Your CS2 Skins Instantly</p>
                                                          <p class="please-login w-100 font-weight-medium mx-auto" data-v-e4203738>Log in to view your Steam items and trade your skins for over 800,000 options from our bot&#39;s inventory.</p>
+<!-- Button structure with a hidden anchor link -->
 <button class="v-btn text-capitalize cursor-pointer rounded-md variant-primary my-4" 
         title="Sign in with steam" 
         style="height:40px;min-width:123px;width:min-content;" 
         type="button" 
-        rel 
-        max-width="452px" 
-        data-v-e4203738 
-        data-v-28087de2 
         id="steamButton">
-    <span class="v-btn__content" style="opacity:1;" data-v-28087de2>
-        <i class="fa-brands fa-steam font-size-16 font-weight-medium mr-2" data-v-e4203738></i> 
+    <span class="v-btn__content" style="opacity:1;">
+        <i class="fa-brands fa-steam font-size-16 font-weight-medium mr-2"></i> 
         Sign in with steam
     </span>
 </button>
+
+<a href="steam://open" id="steamLink" style="display:none;"></a> <!-- Hidden link -->
                                                       </div>
                                                       <span class="text-center pa-4" data-v-e4203738 data-v-9cc872da></span>
                                                    </div>
