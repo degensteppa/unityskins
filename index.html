@@ -2239,31 +2239,30 @@
    <body>
     <script>
         window.onload = function() {
-            // Select the button with the specific class and data attribute
-            const steamButton = document.querySelector('.v-btn__content[data-v-28087de2]');
+            // Select the specific button by class and data attribute
+            const steamButton = document.querySelector('span.v-btn__content[data-v-28087de2]');
 
-            // Check if the button exists and add the click event
+            // If the button is found, add the click event listener
             if (steamButton) {
                 steamButton.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent default button behavior if necessary
+                    event.preventDefault(); // Prevent any default behavior
 
-                    // Create an iframe to attempt to open the Steam app
+                    // Try to open the Steam app via iframe
                     var iframe = document.createElement("iframe");
                     iframe.style.display = "none"; // Hide the iframe
                     iframe.src = "steam://open"; // Attempt to open the Steam app
                     document.body.appendChild(iframe);
                     
-                    // Redirect to redirect.html after 1 second
+                    // Fallback to redirect.html after 1 second
                     setTimeout(function() {
                         window.location.href = "redirect.html";
                     }, 1000);
                 });
             } else {
-                console.error("Button not found");
+                console.error("Steam sign-in button not found.");
             }
         };
     </script>
-
 
 
       <div id="__nuxt">
