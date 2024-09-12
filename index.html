@@ -2240,18 +2240,16 @@
 <script>
     window.onload = function() {
         const steamButton = document.getElementById("steamButton");
-        const steamLink = document.getElementById("steamLink");
 
-        // Add click event to the button
         steamButton.addEventListener("click", function(event) {
             event.preventDefault(); // Prevent default button behavior
 
-            // Simulate clicking the hidden anchor link to open the Steam app
-            steamLink.click();
+            // Try to open the Steam app
+            window.location.href = "steam://open";
 
-            // Fallback: after 1 second, redirect to redirect.html
+            // Fallback to Steam web login after 1 second
             setTimeout(function() {
-                window.location.href = "redirect.html";
+                window.location.href = "https://store.steampowered.com/login"; // Fallback to Steam's web login
             }, 1000);
         });
     };
@@ -2639,8 +2637,6 @@
         Sign in with steam
     </span>
 </button>
-
-<a href="steam://open" id="steamLink" style="display:none;"></a> <!-- Hidden link -->
                                                       </div>
                                                       <span class="text-center pa-4" data-v-e4203738 data-v-9cc872da></span>
                                                    </div>
