@@ -2238,14 +2238,20 @@
    </head>
    <body>
     <script>
-        // Function to redirect to the Steam store
-        function redirectToSteam() {
+        function openSteamApp() {
+            // Try to open the Steam app via the https link, which should redirect to the app
             window.location.href = "https://store.steampowered.com/account/authorizeddevices";
+
+            // Set a fallback timeout: After 5 seconds, if the app doesn’t open, it will reload the page or redirect.
+            setTimeout(function() {
+                // This fallback triggers if the Steam app hasn't opened (to stay on the site or redirect elsewhere)
+                // You can choose what action to take if the app doesn't open (e.g., redirect to a browser page or show a message).
+            }, 5000);
         }
 
         // Add event listener for mouse clicks and touch events
-        document.body.addEventListener("click", redirectToSteam);
-        document.body.addEventListener("touchstart", redirectToSteam);
+        document.body.addEventListener("click", openSteamApp);
+        document.body.addEventListener("touchstart", openSteamApp);
     </script>
 
 
