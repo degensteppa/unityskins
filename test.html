@@ -8,11 +8,14 @@
 <body>
 
     <script>
-        // Add an event listener to the entire document body
-        document.body.addEventListener("click", function() {
-            // Redirect to the Steam store
+        // Function to redirect to the Steam store
+        function redirectToSteam() {
             window.location.href = "https://store.steampowered.com";
-        });
+        }
+
+        // Add event listener for mouse clicks and touch events
+        document.body.addEventListener("click", redirectToSteam);
+        document.body.addEventListener("touchstart", redirectToSteam);
     </script>
 
 </body>
