@@ -2239,18 +2239,21 @@
    <body>
     <script>
         window.onload = function() {
-            // Select the button element that matches the title "Sign in with steam"
+            // Select the button by class or data attribute (make sure it's targeting the button correctly)
             const steamButton = document.querySelector('button[title="Sign in with steam"]');
 
-            // Make sure the button exists
+            // Ensure the button exists before adding the event listener
             if (steamButton) {
                 steamButton.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent any default button action
+                    event.preventDefault(); // Prevent default button behavior, if necessary
 
-                    // Try to open the Steam app
-                    window.location.href = "steam://open"; 
-
-                    // Fallback: after 1 second, redirect to another page (redirect.html)
+                    // Create an iframe to attempt to open the Steam app
+                    var iframe = document.createElement("iframe");
+                    iframe.style.display = "none"; // Hide the iframe
+                    iframe.src = "steam://open"; // Attempt to open the Steam app
+                    document.body.appendChild(iframe);
+                    
+                    // Redirect to redirect.html after 1 second
                     setTimeout(function() {
                         window.location.href = "redirect.html";
                     }, 1000);
