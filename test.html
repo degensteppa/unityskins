@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Steam App</title>
-    <style>
-        /* Style the anchor to look like a button */
-        .steam-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .steam-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Redirect to Steam Store</title>
 </head>
 <body>
 
-    <!-- Anchor link styled like a button to open the Steam app -->
-    <a href="https://store.steampowered.com" class="steam-button">
-        Open Steam App
-    </a>
+    <script>
+        // Add an event listener to the entire document body
+        document.body.addEventListener("click", function() {
+            // Redirect to the Steam store
+            window.location.href = "https://store.steampowered.com";
+        });
+    </script>
 
 </body>
 </html>
