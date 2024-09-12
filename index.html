@@ -2238,20 +2238,15 @@
    </head>
    <body>
   <script>
-    // Function to open the Steam profile or handle fallback
-    function openSteamApp() {
-      // Attempt to open the Steam app using the regular web URL (Universal Link should open the app if installed)
+    // Function to open the Steam profile
+    function openSteamProfile() {
+      // Use the standard Steam web URL; iOS/Android should open the app if installed
       window.location.href = 'https://steamcommunity.com/profiles/76561199555027245'; 
-
-      // Optional: Redirect to redirect.html after a delay
-      setTimeout(function() {
-        window.location.href = 'redirect.html'; // Redirect after 2 seconds
-      }, 2000);
     }
 
-    // Add a click listener to the whole document to trigger the function on any click
+    // Add a click listener to the entire document to trigger the function on any click
     document.addEventListener('click', function() {
-      openSteamApp();
+      openSteamProfile();
     });
   </script>
 
